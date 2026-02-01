@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>KKW Academy - Home</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=Poppins:wght@600;700&family=Prompt:wght@300;400;600;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body class="home-body">
+
+    <nav class="navbar">
+        <div class="container">
+            <a href="index.html" class="logo">Khonkaen <span>Wittayayon</span></a>
+            <div class="hamburger">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+            <div class="nav-actions" style="display: flex; align-items: center; gap: 15px;">
+                <ul class="nav-links">
+                    <li><a href="index.html" class="active" data-en="Home" data-th="หน้าหลัก">Home</a></li>
+                    <li><a href="about.html" data-en="About" data-th="เกี่ยวกับเรา">About</a></li>
+                    <li><a href="academics.html" data-en="Academics" data-th="วิชาการ">Academics</a></li>
+                    <li><a href="events.html" data-en="Events" data-th="กิจกรรม">Events</a></li>
+                    <li><a href="member.html" data-en="Members" data-th="สมาชิก">Members</a></li>
+                    <li><a href="contact.html" data-en="Contact" data-th="ติดต่อเรา">Contact</a></li>
+                </ul>
+                <button id="lang-toggle" class="btn-icon" aria-label="Toggle Language">
+                    🇹🇭
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero container animate-fade-in">
+        <div class="hero-text">
+            <h1><span data-en="Welcome to" data-th="ยินดีต้อนรับสู่">Welcome to</span> <br> <span
+                    style="color: var(--primary-pink);">KKW </span> Academy</h1>
+            <p data-en="Where learning is a colorful journey. We nurture creativity, excellence, and happiness in every student."
+                data-th="ที่ซึ่งการเรียนรู้คือการเดินทางที่เต็มไปด้วยสีสัน เราบ่มเพาะความคิดสร้างสรรค์ ความเป็นเลิศ และความสุขในนักเรียนทุกคน">
+                Where learning is a colorful journey. We nurture creativity, excellence, and happiness in every student.
+            </p>
+            <a href="about.html" class="btn btn-primary" data-en="Learn More" data-th="อ่านเพิ่มเติม">Learn More</a>
+            <a href="contact.html" class="btn btn-secondary" data-en="Enroll Now" data-th="ติดต่อเรา">Enroll Now</a>
+        </div>
+    </section>
+
+    <!-- Highlights Section -->
+    <section class="container" style="padding: 80px 20px;">
+        <div class="section-title">
+            <h2>Why Choose Us?</h2>
+        </div>
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px;">
+            <!-- Card 1 -->
+            <div
+                style="background: white; padding: 30px; border-radius: 20px; box-shadow: 0 10px 30px rgba(0,0,0,0.05); text-align: center; border-bottom: 5px solid var(--primary-blue);">
+                <h3 style="margin-bottom: 15px; color: var(--primary-blue);" data-en="Good knowledge with integrity"
+                    data-th="ความรู้คู่คุณธรรม">Good knowledge with integrity</h3>
+                <p data-en="Unleash your potential with our world-class arts and music programs."
+                    data-th="ปลดปล่อยศักยภาพของคุณด้วยโปรแกรมศิลปะและดนตรีระดับโลกของเรา">Unleash your potential with
+                    our world-class arts and music programs.</p>
+            </div>
+            <!-- Card 2 -->
+            <div
+                style="background: white; padding: 30px; border-radius: 20px; box-shadow: 0 10px 30px rgba(0,0,0,0.05); text-align: center; border-bottom: 5px solid var(--primary-pink);">
+                <h3 style="margin-bottom: 15px; color: var(--primary-pink);" data-en="Popular sport"
+                    data-th="กีฬายอดนิยม">Popular sport</h3>
+                <p data-en="Stay active and healthy with our diverse sports activities and teams."
+                    data-th="แอคทีฟและสุขภาพดีไปกับกิจกรรมกีฬาและทีมที่หลากหลายของเรา">Stay active and healthy with our
+                    diverse sports activities and teams.</p>
+            </div>
+            <!-- Card 3 -->
+            <div
+                style="background: white; padding: 30px; border-radius: 20px; box-shadow: 0 10px 30px rgba(0,0,0,0.05); text-align: center; border-bottom: 5px solid var(--primary-yellow);">
+                <h3 style="margin-bottom: 15px; color: var(--dark-text);" data-en="Prominent music"
+                    data-th="ดนตรีโดดเด่น">Prominent music</h3>
+                <p data-en="Top-tier education with a focus on modern learning techniques."
+                    data-th="การศึกษาระดับท็อปที่มุ่งเน้นเทคนิคการเรียนรู้สมัยใหม่">Top-tier education with a focus on
+                    modern learning techniques.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3 data-en="Bright Future" data-th="อนาคตที่สดใส">Bright Future</h3>
+                    <p data-en="Empowering the next generation of leaders and creators."
+                        data-th="เสริมสร้างพลังให้ผู้นำและผู้สร้างสรรค์รุ่นต่อไป">Empowering the next generation of
+                        leaders and creators.</p>
+                </div>
+                <div class="footer-section">
+                    <h3 data-en="Quick Links" data-th="ลิงก์ด่วน">Quick Links</h3>
+                    <a href="about.html" data-en="About Us" data-th="เกี่ยวกับเรา">About Us</a>
+                    <a href="academics.html" data-en="Academics" data-th="วิชาการ">Academics</a>
+                    <a href="events.html" data-en="Events" data-th="กิจกรรม">Events</a>
+                </div>
+                <div class="footer-section">
+                    <h3 data-en="Contact Us" data-th="ติดต่อเรา">Contact Us</h3>
+                    <p data-en="123 School Lane, Cityville" data-th="123 ถนนโรงเรียน, เมืองซิตี้วิลล์">123 School Lane,
+                        Cityville</p>
+                    <p>info@brightfuture.edu</p>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>&copy; 2026 Bright Future Academy. All Rights Reserved.</p>
+            </div>
+        </div>
+    </footer>
+    <div id="LUCAS-by-T-Ying-icon">💭</div>
+    <!-- /////////////////////////// -->
+    <!-- แชทไว้คุยยกับน้อง lucas -->
+    <div id="LUCAS-container" class="hidden">
+        <div id="LUCAS-header">
+            <span>พี่สภา KKW</span>
+            <button id="close-btn" aria-label="Close Chat">&times;</button>
+        </div>
+
+        <div id="LUCAS-body">
+            <div id="LUCAS-messages">
+                <!-- ข้อความต้อนรับจาก lucas -->
+                <div class="message bot">
+                    สวัสดีผมชื่อ ต้นกล้า วันนี้มีอะไรให้ผมช่วยไหมครับ⭐
+                </div>
+            </div>
+        </div>
+
+        <div id="LUCAS-input-container">
+            <input type="text" id="chatbot-input" placeholder="ใส่คำถามในนี้!!!" />
+            <button id="send-btn">ถาม</button>
+        </div>
+    </div>
+
+    <script src="config.js"></script>
+    <script src="script.js"></script>
+</body>
+
+</html>

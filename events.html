@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Events - Bright Future Academy</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=Poppins:wght@600;700&family=Prompt:wght@300;400;600;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <nav class="navbar">
+        <div class="container">
+            <a href="index.html" class="logo">Khonkaen <span>Wittayayon</span></a>
+            <div class="hamburger">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+            <div class="nav-actions" style="display: flex; align-items: center; gap: 15px;">
+                <ul class="nav-links">
+                    <li><a href="index.html" data-en="Home" data-th="หน้าหลัก">Home</a></li>
+                    <li><a href="about.html" data-en="About" data-th="เกี่ยวกับเรา">About</a></li>
+                    <li><a href="academics.html" data-en="Academics" data-th="วิชาการ">Academics</a></li>
+                    <li><a href="events.html" class="active" data-en="Events" data-th="กิจกรรม">Events</a></li>
+                    <li><a href="member.html" data-en="Members" data-th="สมาชิก">Members</a></li>
+                    <li><a href="contact.html" data-en="Contact" data-th="ติดต่อเรา">Contact</a></li>
+                </ul>
+                <button id="lang-toggle" class="btn-icon" aria-label="Toggle Language">
+                    🇹🇭
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <header class="page-header animate-fade-in"
+        style="background-color: var(--primary-yellow); color: var(--dark-text);">
+        <div class="container">
+            <h1 data-en="School Events" data-th="กิจกรรมโรงเรียน">School Events</h1>
+            <p data-en="Join us in celebrating our community and achievements."
+                data-th="มาร่วมเฉลิมฉลองชุมชนและความสำเร็จของเรา">Join us in celebrating our community and achievements.
+            </p>
+        </div>
+    </header>
+
+    <section class="container" style="margin-bottom: 80px;">
+        <div class="section-title">
+            <h2 data-en="Upcoming Events" data-th="กิจกรรมที่กำลังจะมาถึง">Upcoming Events</h2>
+        </div>
+
+        <div style="display: flex; flex-direction: column; gap: 30px;">
+            <!-- Event 1 -->
+            <div
+                style="display: flex; flex-wrap: wrap; background: white; border-radius: 20px; box-shadow: 0 5px 15px rgba(0,0,0,0.05); overflow: hidden;">
+                <div
+                    style="background-color: var(--primary-blue); color: white; padding: 30px; min-width: 150px; text-align: center; display: flex; flex-direction: column; justify-content: center;">
+                    <span style="font-size: 2.5rem; font-weight: bold;">15</span>
+                    <span style="font-size: 1.2rem;" data-en="NOV" data-th="พ.ย.">NOV</span>
+                </div>
+                <div style="padding: 30px; flex: 1;">
+                    <h3 style="color: var(--dark-text); margin-bottom: 10px;" data-en="Annual Science Fair"
+                        data-th="งานวิทยาศาสตร์ประจำปี">Annual Science Fair</h3>
+                    <p style="margin-bottom: 15px;"
+                        data-en="Come and see the amazing projects our students have been working on. Innovation starts here!"
+                        data-th="เชิญชมผลงานที่น่าทึ่งของนักเรียนของเรา นวัตกรรมเริ่มต้นที่นี่!">Come and see the
+                        amazing projects our students have been working on.
+                        Innovation starts here!</p>
+                    <span style="font-size: 0.9rem; color: #777;" data-en="9:00 AM - 3:00 PM | School Auditorium"
+                        data-th="9:00 น. - 15:00 น. | หอประชุมโรงเรียน">9:00 AM - 3:00 PM | School Auditorium</span>
+                </div>
+            </div>
+
+            <!-- Event 2 -->
+            <div
+                style="display: flex; flex-wrap: wrap; background: white; border-radius: 20px; box-shadow: 0 5px 15px rgba(0,0,0,0.05); overflow: hidden;">
+                <div
+                    style="background-color: var(--primary-pink); color: white; padding: 30px; min-width: 150px; text-align: center; display: flex; flex-direction: column; justify-content: center;">
+                    <span style="font-size: 2.5rem; font-weight: bold;">02</span>
+                    <span style="font-size: 1.2rem;" data-en="DEC" data-th="ธ.ค.">DEC</span>
+                </div>
+                <div style="padding: 30px; flex: 1;">
+                    <h3 style="color: var(--dark-text); margin-bottom: 10px;" data-en="Winter Concert"
+                        data-th="คอนเสิร์ตฤดูหนาว">Winter Concert</h3>
+                    <p style="margin-bottom: 15px;"
+                        data-en="Enjoy an evening of music performed by our talented choir and orchestra."
+                        data-th="รื่นรมย์กับค่ำคืนแห่งเสียงดนตรีจากการแสดงของวงประสานเสียงและวงออร์เคสตราที่มีพรสวรรค์ของเรา">
+                        Enjoy an evening of music performed by our talented choir and
+                        orchestra.</p>
+                    <span style="font-size: 0.9rem; color: #777;" data-en="6:00 PM - 8:00 PM | Arts Center"
+                        data-th="18:00 น. - 20:00 น. | ศูนย์ศิลปะ">6:00 PM - 8:00 PM | Arts Center</span>
+                </div>
+            </div>
+
+            <!-- Event 3 -->
+            <div
+                style="display: flex; flex-wrap: wrap; background: white; border-radius: 20px; box-shadow: 0 5px 15px rgba(0,0,0,0.05); overflow: hidden;">
+                <div
+                    style="background-color: var(--primary-yellow); color: var(--dark-text); padding: 30px; min-width: 150px; text-align: center; display: flex; flex-direction: column; justify-content: center;">
+                    <span style="font-size: 2.5rem; font-weight: bold;">10</span>
+                    <span style="font-size: 1.2rem;" data-en="JAN" data-th="ม.ค.">JAN</span>
+                </div>
+                <div style="padding: 30px; flex: 1;">
+                    <h3 style="color: var(--dark-text); margin-bottom: 10px;" data-en="Sports Day" data-th="วันกีฬาสี">
+                        Sports Day</h3>
+                    <p style="margin-bottom: 15px;"
+                        data-en="A day of fun, competition, and team spirit for all students."
+                        data-th="วันที่เต็มไปด้วยความสนุก การแข่งขัน และจิตวิญญาณของทีมสำหรับนักเรียนทุกคน">A day of
+                        fun, competition, and team spirit for all students.</p>
+                    <span style="font-size: 0.9rem; color: #777;" data-en="All Day | School Grounds"
+                        data-th="ทั้งวัน | สนามโรงเรียน">All Day | School Grounds</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3 data-en="Bright Future" data-th="อนาคตที่สดใส">Bright Future</h3>
+                    <p data-en="Empowering the next generation of leaders and creators."
+                        data-th="เสริมสร้างพลังให้ผู้นำและผู้สร้างสรรค์รุ่นต่อไป">Empowering the next generation of
+                        leaders and creators.</p>
+                </div>
+                <div class="footer-section">
+                    <h3 data-en="Quick Links" data-th="ลิงก์ด่วน">Quick Links</h3>
+                    <a href="about.html" data-en="About Us" data-th="เกี่ยวกับเรา">About Us</a>
+                    <a href="academics.html" data-en="Academics" data-th="วิชาการ">Academics</a>
+                    <a href="events.html" data-en="Events" data-th="กิจกรรม">Events</a>
+                </div>
+                <div class="footer-section">
+                    <h3 data-en="Contact Us" data-th="ติดต่อเรา">Contact Us</h3>
+                    <p data-en="123 School Lane, Cityville" data-th="123 ถนนโรงเรียน, เมืองซิตี้วิลล์">123 School Lane,
+                        Cityville</p>
+                    <p>info@brightfuture.edu</p>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>&copy; 2026 Bright Future Academy. All Rights Reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+
+</html>

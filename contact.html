@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us - Bright Future Academy</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=Poppins:wght@600;700&family=Prompt:wght@300;400;600;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <style>
+        .contact-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+        }
+
+        @media (max-width: 768px) {
+            .contact-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        input,
+        textarea {
+            width: 100%;
+            padding: 15px;
+            margin-bottom: 20px;
+            border: 2px solid #eee;
+            border-radius: 10px;
+            font-family: var(--font-body);
+            transition: all 0.3s ease;
+        }
+
+        input:focus,
+        textarea:focus {
+            outline: none;
+            border-color: var(--primary-blue);
+        }
+
+        label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 600;
+        }
+    </style>
+</head>
+
+<body>
+
+    <nav class="navbar">
+        <div class="container">
+            <a href="index.html" class="logo">pakjai <span>kkw</span></a>
+            <div class="hamburger">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+            <div class="nav-actions" style="display: flex; align-items: center; gap: 15px;">
+                <ul class="nav-links">
+                    <li><a href="index.html" data-en="Home" data-th="หน้าหลัก">Home</a></li>
+                    <li><a href="about.html" data-en="About" data-th="เกี่ยวกับเรา">About</a></li>
+                    <li><a href="academics.html" data-en="Academics" data-th="วิชาการ">Academics</a></li>
+                    <li><a href="events.html" data-en="Events" data-th="กิจกรรม">Events</a></li>
+                    <li><a href="member.html" data-en="Members" data-th="สมาชิก">Members</a></li>
+                    <li><a href="contact.html" class="active" data-en="Contact" data-th="ติดต่อเรา">Contact</a></li>
+                </ul>
+                <button id="lang-toggle" class="btn-icon" aria-label="Toggle Language">
+                    🇹🇭
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <header class="page-header animate-fade-in">
+        <div class="container">
+            <h1 data-en="Contact Us" data-th="ติดต่อเรา">Contact Us</h1>
+            <p data-en="We'd love to hear from you. Get in touch with us today."
+                data-th="เราอยากได้ยินจากคุณ ติดต่อเราได้เลยวันนี้">We'd love to hear from you. Get in touch with us
+                today.</p>
+        </div>
+    </header>
+
+    <section class="container"
+        style="margin-bottom: 80px; min-height: 50vh; display: flex; align-items: center; justify-content: center;">
+        <div style="text-align: center; max-width: 600px; padding: 40px;">
+            <div
+                style="background: linear-gradient(135deg, rgba(131, 58, 180, 0.1), rgba(253, 29, 29, 0.1), rgba(252, 176, 69, 0.1)); padding: 60px 40px; border-radius: 30px; box-shadow: 0 10px 40px rgba(0,0,0,0.1);">
+                <h2 style="color: var(--primary-blue); margin-bottom: 15px; font-size: 2.5rem;" data-en="Contact Us"
+                    data-th="ติดต่อเรา">
+                    Contact Us
+                </h2>
+                <p style="margin-bottom: 40px; color: #666; font-size: 1.1rem;"
+                    data-en="Get in touch with us on Instagram" data-th="ติดต่อเราผ่าน Instagram">
+                    Get in touch with us on Instagram
+                </p>
+
+                <a href="https://www.instagram.com/pakjai.kkw?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw=="
+                    target="_blank"
+                    style="display: inline-flex; align-items: center; gap: 12px; padding: 18px 40px; background: linear-gradient(135deg, #833ab4, #fd1d1d, #fcb045); color: white; text-decoration: none; border-radius: 15px; font-weight: 600; font-size: 1.2rem; transition: all 0.3s ease; box-shadow: 0 5px 20px rgba(131, 58, 180, 0.4);"
+                    onmouseover="this.style.transform='translateY(-3px)'; this.style.boxShadow='0 8px 30px rgba(131, 58, 180, 0.6)'"
+                    onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='0 5px 20px rgba(131, 58, 180, 0.4)'">
+                    <span style="font-size: 1.5em;">📱</span>
+                    <span data-en="Follow @pakjai.kkw" data-th="ติดตาม @pakjai.kkw">Follow @pakjai.kkw</span>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3 data-en="Bright Future" data-th="อนาคตที่สดใส">Bright Future</h3>
+                    <p data-en="Empowering the next generation of leaders and creators."
+                        data-th="เสริมสร้างพลังให้ผู้นำและผู้สร้างสรรค์รุ่นต่อไป">Empowering the next generation of
+                        leaders and creators.</p>
+                </div>
+                <div class="footer-section">
+                    <h3 data-en="Quick Links" data-th="ลิงก์ด่วน">Quick Links</h3>
+                    <a href="about.html" data-en="About Us" data-th="เกี่ยวกับเรา">About Us</a>
+                    <a href="academics.html" data-en="Academics" data-th="วิชาการ">Academics</a>
+                    <a href="events.html" data-en="Events" data-th="กิจกรรม">Events</a>
+                </div>
+                <div class="footer-section">
+                    <h3 data-en="Contact Us" data-th="ติดต่อเรา">Contact Us</h3>
+                    <p data-en="123 School Lane, Cityville" data-th="123 ถนนโรงเรียน, เมืองซิตี้วิลล์">123 School Lane,
+                        Cityville</p>
+                    <p>info@brightfuture.edu</p>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>&copy; 2026 Bright Future Academy. All Rights Reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+
+</html>

@@ -181,7 +181,16 @@ document.addEventListener("DOMContentLoaded", function () {
         }
     }
     async function fetchResponse(apiKey, model, prompt, loadingId) {
-        const apiUrl = '/api/chat';
+        // Auto-detect URL: 
+        // If on localhost but NOT port 3000 (e.g. Live Server 5500), point to backend at 3000.
+        // Otherwise (Vercel or localhost:3000), use relative path.
+        let apiUrl = '/api/chat';
+        if (window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1') {
+            if (window.location.port !== '3000') {
+                apiUrl = 'http://localhost:3000/api/chat';
+            }
+        }
+
         try {
             const response = await fetch(apiUrl, {
                 method: "POST",

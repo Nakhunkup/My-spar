@@ -206,7 +206,8 @@ document.addEventListener("DOMContentLoaded", function () {
                 let errorMessage = "API Error";
                 try {
                     const errorData = JSON.parse(responseText);
-                    errorMessage = errorData.error?.message || errorData.message || errorMessage;
+                    // Add more debugging info
+                    errorMessage = errorData.error?.message || errorData.message || ("API Error: " + JSON.stringify(errorData));
                 } catch (e) {
                     errorMessage = `Server Error (${response.status}): ${responseText}`;
                 }

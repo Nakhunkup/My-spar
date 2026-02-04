@@ -1,27 +1,27 @@
-import express from 'express';
-import cors from 'cors';
-import dotenv from 'dotenv';
 import fetch from 'node-fetch';
 
-dotenv.config();
+export default async function handler(req, res) {
+    // Enable CORS
+    res.setHeader('Access-Control-Allow-Credentials', true);
+    res.setHeader('Access-Control-Allow-Origin', '*'); // Allow all origins
+    res.setHeader('Access-Control-Allow-Methods', 'GET,OPTIONS,PATCH,DELETE,POST,PUT');
+    res.setHeader(
+        'Access-Control-Allow-Headers',
+        'X-CSRF-Token, X-Requested-With, Accept, Accept-Version, Content-Length, Content-MD5, Content-Type, Date, X-Api-Version'
+    );
 
-const app = express();
-const port = 3000;
+    if (req.method === 'OPTIONS') {
+        res.status(200).end();
+        return;
+    }
 
-app.use(cors());
-app.use(express.json());
-// Serve static files from the current directory
-app.use(express.static('.'));
+    if (req.method !== 'POST') {
+        return res.status(405).json({ error: { message: 'Method Not Allowed' } });
+    }
 
-const API_KEY = process.env.GEMINI_API_KEY;
-
-// Match the Vercel route /api/chat
-app.post('/api/chat', async (req, res) => {
     try {
+        const API_KEY = process.env.GEMINI_API_KEY;
         const { prompt, model = "gemini-1.5-flash" } = req.body;
-
-        // Basic system instruction is handled by client in "prompt" for now,
-        // or we can move it here if we want to secure the system prompt too.
 
         if (!API_KEY) {
             return res.status(500).json({ error: { message: "Server: API Key not configured." } });
@@ -41,14 +41,10 @@ app.post('/api/chat', async (req, res) => {
         }
 
         const data = await response.json();
-        res.json(data);
+        res.status(200).json(data);
 
     } catch (error) {
         console.error("Error:", error);
         res.status(500).json({ error: { message: error.message } });
     }
-});
-
-app.listen(port, () => {
-    console.log(`Server running at http://localhost:${port}`);
-});
+}

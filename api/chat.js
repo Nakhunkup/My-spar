@@ -21,7 +21,7 @@ export default async function handler(req, res) {
 
     try {
         const API_KEY = process.env.GEMINI_API_KEY;
-        const { prompt, model = "gemini-1.5-flash" } = req.body;
+        const { prompt, model = "gemini-2.0-flash" } = req.body;
 
         if (!API_KEY) {
             return res.status(500).json({ error: { message: "Server: API Key not configured." } });

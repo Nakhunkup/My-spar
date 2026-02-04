@@ -146,13 +146,13 @@ document.addEventListener("DOMContentLoaded", function () {
         }
     }
     async function getBotResponse(userMessage, loadingId) {
-        // Load API key from config.js (this file is gitignored)
-        const apiKey = (typeof CONFIG !== 'undefined' && CONFIG.GEMINI_API_KEY) || '';
+        // API Key is now handled by the backend server
+        // const apiKey = (typeof CONFIG !== 'undefined' && CONFIG.GEMINI_API_KEY) || '';
         ///////////////////////////////////////////////////////////////////////////////////////////////////////////
-        if (apiKey.includes("ใส่-API-KEY") || apiKey.length < 10) {
-            updateLoadingMessage(loadingId, "ขอกราบขอความกรุณาใส่ API Key ในไฟล์ script.js ก่อนขอรับคุณชาย");
-            return;
-        }
+        // if (apiKey.includes("ใส่-API-KEY") || apiKey.length < 10) {
+        //    updateLoadingMessage(loadingId, "ขอกราบขอความกรุณาใส่ API Key ในไฟล์ script.js ก่อนขอรับคุณชาย");
+        //    return;
+        // }
 
 
         const systemInstruction = "คุณเป็นประธานพรรค สภาในโรงเรียน มีหน้าที่ตอบคำถามของ นักเรียนเกี่ยวกับการเมืองในโรงเรียน ตอบแค่คำถามที่ผู้ใช้ถามเท่านั้น หากคำถามไม่เกี่ยวข้องกับการเมืองในโรงเรียน ให้ตอบกลับอย่างสุภาพว่า 'ขออภัยครับ คำถามนี้อยู่นอกเหนือขอบเขตหน้าที่ของผม' หากผู้ใช้ถามชื่อครูในหมวดหลายคนให้ขึ้นบรรทัดใหม่ก่อนที่จะไปบอกชื่อครูคนถัดไป";
@@ -173,71 +173,12 @@ document.addEventListener("DOMContentLoaded", function () {
         const finalPrompt = `${systemInstruction}${schoolDataText}\n\nคำถามจากนักเรียน: ${userMessage}\n(หมายเหตุ: อย่าลืมขึ้นบรรทัดใหม่เมื่อตอบชื่อครูหลายคน)`;
 
         try {
-            await fetchResponse(apiKey, currentModel, finalPrompt, loadingId);
+            // Send request to backend
+            await fetchResponse(null, currentModel, finalPrompt, loadingId);
         } catch (error) {
-            console.warn("First attempt failed, trying to find available models...", error);
-
-            try {
-                const newModel = await findBestAvailableModel(apiKey);
-                if (newModel) {
-                    console.log("Switching to model:", newModel);
-                    currentModel = newModel;
-                    await fetchResponse(apiKey, newModel, finalPrompt, loadingId);
-                } else {
-                    updateLoadingMessage(loadingId, " Error: API Key เข้าถึงโมเดลไม่ได้เลย (กรุณาเช็คว่าเปิด Generative Language API ใน Google Cloud หรือยัง)");
-                }
-            } catch (retryError) {
-                // ดักจับ Error ในรอบที่ 2 เพื่อไม่ให้ค้าง
-                console.error("Retry failed:", retryError);
-                updateLoadingMessage(loadingId, "บ่แม่นคับ Connection Failed: " + (retryError.message || "Unknown Error"));
-            }
+            console.warn("Attempt failed", error);
+            updateLoadingMessage(loadingId, "Connection Failed: " + (error.message || "Unknown Error"));
         }
-    }
-
-    // ฟังก์ชันส่งข้อความ
-    async function fetchResponse(apiKey, model, prompt, loadingId) {
-        const apiUrl = `https://generativelanguage.googleapis.com/v1beta/models/${model}:generateContent?key=${apiKey}`;
-
-        const response = await fetch(apiUrl, {
-            method: "POST",
-            headers: { "Content-Type": "application/json" },
-            body: JSON.stringify({ contents: [{ parts: [{ text: prompt }] }] })
-        });
-
-        if (!response.ok) {
-            const errorData = await response.json();
-            throw new Error(errorData.error?.message || "API Error");
-        }
-
-        const data = await response.json();
-        if (data.candidates && data.candidates.length > 0) {
-            updateLoadingMessage(loadingId, data.candidates[0].content.parts[0].text);
-        } else {
-            updateLoadingMessage(loadingId, "AI ไม่ตอบกลับ (No content generated)");
-        }
-    }
-    // ฟังก์ชันค้นหาโมเดล
-    async function findBestAvailableModel(apiKey) {
-        try {
-            const response = await fetch(`https://generativelanguage.googleapis.com/v1beta/models?key=${apiKey}`);
-            const data = await response.json();
-
-            if (data.models) {
-                const validModels = data.models.filter(m =>
-                    m.supportedGenerationMethods &&
-                    m.supportedGenerationMethods.includes("generateContent")
-                );
-
-                if (validModels.length > 0) {
-                    // เลือกตัวแรกสุดที่เจอ (มักจะเป็นรุ่นมาตรฐาน)
-                    const bestModel = validModels[0].name.replace("models/", "");
-                    return bestModel;
-                }
-            }
-        } catch (e) {
-            console.error("Failed to list models:", e);
-        }
-        return null;
     }
 });
 

@@ -189,20 +189,35 @@ document.addEventListener("DOMContentLoaded", function () {
                 body: JSON.stringify({ prompt, model })
             });
 
+            // Read text first to debug "Unexpected end of JSON"
+            const responseText = await response.text();
+
             if (!response.ok) {
-                const errorData = await response.json();
-                throw new Error(errorData.error?.message || "API Error");
+                // Try to parse error as JSON, otherwise use text
+                let errorMessage = "API Error";
+                try {
+                    const errorData = JSON.parse(responseText);
+                    errorMessage = errorData.error?.message || errorData.message || errorMessage;
+                } catch (e) {
+                    errorMessage = `Server Error (${response.status}): ${responseText}`;
+                }
+                throw new Error(errorMessage);
             }
 
-            const data = await response.json();
+            if (!responseText) {
+                throw new Error("Server returned empty response");
+            }
+
+            const data = JSON.parse(responseText);
             if (data.candidates && data.candidates.length > 0) {
                 updateLoadingMessage(loadingId, data.candidates[0].content.parts[0].text);
             } else {
                 updateLoadingMessage(loadingId, "AI ไม่ตอบกลับ (No content generated)");
             }
         } catch (error) {
-            console.error("Fetch error:", error);
-            throw error;
+            console.error("Fetch error details:", error);
+            updateLoadingMessage(loadingId, "Error: " + error.message);
+            // Don't rethrow here to prevent unhandled promise rejection logging in console that confuses user
         }
     }
 });

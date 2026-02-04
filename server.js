@@ -19,7 +19,7 @@ const API_KEY = process.env.GEMINI_API_KEY;
 app.post('/api/chat', async (req, res) => {
     console.log("Received request at /api/chat");
     try {
-        const { prompt, model = "gemini-1.5-flash" } = req.body;
+        const { prompt, model = "gemini-2.0-flash" } = req.body;
 
         // Basic system instruction is handled by client in "prompt" for now,
         // or we can move it here if we want to secure the system prompt too.

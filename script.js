@@ -92,7 +92,7 @@ document.addEventListener("DOMContentLoaded", function () {
     const chatbotIcon = document.getElementById("LUCAS-by-T-Ying-icon");
     const ctaBtn = document.getElementById("cta-btn");
     // ตัวแปรเก็บชื่อโมเดลที่ใช้งานได้ (จะถูกเติมอัตโนมัติ)
-    let currentModel = "gemini-1.5-flash";
+    let currentModel = "gemini-2.0-flash";
     function openChat() {
         chatbotContainer.classList.remove("hidden");
         chatbotIcon.style.display = "none";

@@ -180,6 +180,31 @@ document.addEventListener("DOMContentLoaded", function () {
             updateLoadingMessage(loadingId, "Connection Failed: " + (error.message || "Unknown Error"));
         }
     }
+    async function fetchResponse(apiKey, model, prompt, loadingId) {
+        const apiUrl = '/api/chat';
+        try {
+            const response = await fetch(apiUrl, {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify({ prompt, model })
+            });
+
+            if (!response.ok) {
+                const errorData = await response.json();
+                throw new Error(errorData.error?.message || "API Error");
+            }
+
+            const data = await response.json();
+            if (data.candidates && data.candidates.length > 0) {
+                updateLoadingMessage(loadingId, data.candidates[0].content.parts[0].text);
+            } else {
+                updateLoadingMessage(loadingId, "AI ไม่ตอบกลับ (No content generated)");
+            }
+        } catch (error) {
+            console.error("Fetch error:", error);
+            throw error;
+        }
+    }
 });
 
 // elements สำหรับสลับธีมคับ
